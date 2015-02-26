@@ -1,3 +1,5 @@
+Note: I have added some more documentation to the [wiki](https://github.com/wkretzsch/kuhn3p/wiki) of this fork (wkretzsch)
+
 kuhn3p
 ======
 
