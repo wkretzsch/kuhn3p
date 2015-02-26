@@ -78,6 +78,7 @@ def num_actions(state):
 	assert is_internal(state)
 	return 2
 
+# This is where player actions are processed
 def act(state, action):
 	assert action < num_actions(state)
 	player, decision = actor(state), to_decision(state)

@@ -14,16 +14,21 @@ def winner(state, cards):
 		return betting.bettor(state)
 
 def play_hand(players, cards):
+
+        # state is a number between 0 and 12
 	state = betting.root()
 
+        # get all players to look at their starting hand
 	for i in range(3):
 		players[i].start_hand(i, cards[i])
 
+        # start betting round
 	while not betting.is_terminal(state):
 		player = betting.actor(state)
 		action = players[player].act(state, cards[player])
 		state  = betting.act(state, action)
 
+        # calculate showdown
 	shown_cards = [cards[i] if betting.at_showdown(state, i) else None for i in range(3)]
 
 	for i in range(3):
