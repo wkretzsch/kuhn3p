@@ -5,9 +5,9 @@ rng         = Random()
 rng.seed(31337)  # each seed corresponds to a different set of hands
 
 num_hands   = 3000
-the_players = [players.Chump(0.99, 0.01, 0.0), 
-    players.Chump(0.99, 0.01, 0.0), 
-    players.Bluffer(0.2) ]
+the_players = [players.Chump(0.99, 0.01, 0.0),
+               players.bluff_advanced(),
+               players.Bluffer(0.2) ]
 
 total = [0, 0, 0]
 
