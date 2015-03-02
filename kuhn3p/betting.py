@@ -74,6 +74,11 @@ def facing_bet_fold(state):
 def call_closes_action(state):
     return facing_bet_call(state) or facing_bet_fold(state) 
 
+# this is true only if we are right after bet and the player
+# after us still needs to call or fold
+def facing_bet2(state):
+        return can_fold(state) and not call_closes_action(state)
+
 def num_actions(state):
 	assert is_internal(state)
 	return 2
