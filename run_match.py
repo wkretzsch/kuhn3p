@@ -11,10 +11,10 @@ rng         = Random()
 rng.seed(31337)  # each seed corresponds to a different set of hands
 
 num_hands   = 10000
-the_available_players = [players.bluff_advanced(),
-               players.bluff_advanced_2(),
-               players.Bluffer(0.2),
-			   players.Bluffer(0.1)]
+the_available_players = [players.bluff_advanced,
+						 players.bluff_advanced_2,
+						 players.Bluffer_0p2
+]
 
 ## now run each combination of three players
 the_player_combinations = list(combinations(range(len(the_available_players)), 3))
@@ -25,7 +25,9 @@ print "\t".join((map(str, the_player_combinations)))
 for pIdxs in the_player_combinations:
 
 		assert len(pIdxs) == 3
-		the_players = [the_available_players[pIdxs[0]], the_available_players[pIdxs[1]], the_available_players[pIdxs[2]]]
+		the_players = [the_available_players[pIdxs[0]](),
+					   the_available_players[pIdxs[1]](),
+					   the_available_players[pIdxs[2]]()]
 		the_player_names = map(str, the_players)
 		the_player_class_names = map(lambda obj: obj.__class__.__name__, the_players)
 		print "\t".join(the_player_names)
